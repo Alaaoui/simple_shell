@@ -1,10 +1,10 @@
 #include "shell.h"
 
 /**
- * interactive - returns true if shell is interactive mode
- * @info: struct address
+ * interactive - interactive mode in shell
+ * @info: struct value
  *
- * Return: 1 if interactive mode, 0 otherwise
+ * Return: 1 if shell is interactive , else 0
  */
 int interactive(info_t *info)
 {
@@ -12,10 +12,10 @@ int interactive(info_t *info)
 }
 
 /**
- * is_delim - checks if character is a delimeter
- * @c: the char to check
- * @delim: the delimeter string
- * Return: 1 if true, 0 if false
+ * is_delim - verifies if delimiter in char
+ * @c:char value
+ * @delim:delimiter value
+ * Return: 1 if true, else 0
  */
 int is_delim(char c, char *delim)
 {
@@ -26,9 +26,9 @@ int is_delim(char c, char *delim)
 }
 
 /**
- *_isalpha - checks for alphabetic character
- *@c: The character to input
- *Return: 1 if c is alphabetic, 0 otherwise
+ *_isalpha - alphabetic char validated
+ *@c:char value
+ *Return: 1 alphabetic, else 0
  */
 
 int _isalpha(int c)
@@ -40,35 +40,35 @@ int _isalpha(int c)
 }
 
 /**
- *_atoi - converts a string to an integer
- *@s: the string to be converted
- *Return: 0 if no numbers in string, converted number otherwise
+ *_atoi - string to an integer conversion
+ *@s:string value
+ *Return: 0 if no numbers to convert.
  */
 
 int _atoi(char *s)
 {
-	int i, sign = 1, flag = 0, output;
-	unsigned int result = 0;
+	int m, con = 1, up = 0, outcome;
+	unsigned int final = 0;
 
-	for (i = 0;  s[i] != '\0' && flag != 2; i++)
+	for (m = 0;  s[m] != '\0' && up != 2; m++)
 	{
-		if (s[i] == '-')
-			sign *= -1;
+		if (s[m] == '-')
+			con *= -1;
 
-		if (s[i] >= '0' && s[i] <= '9')
+		if (s[m] >= '0' && s[m] <= '9')
 		{
-			flag = 1;
-			result *= 10;
-			result += (s[i] - '0');
+			up = 1;
+			final *= 10;
+			final += (s[m] - '0');
 		}
-		else if (flag == 1)
-			flag = 2;
+		else if (up == 1)
+			up = 2;
 	}
 
-	if (sign == -1)
-		output = -result;
+	if (con == -1)
+		outcome = -final;
 	else
-		output = result;
+		outcome = final;
 
-	return (output);
+	return (outcome);
 }
