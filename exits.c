@@ -39,18 +39,18 @@ char *_strncpy(char *dest, char *src, int n)
  */
 char *_strncat(char *dest, char *src, int n)
 {
-	int c, d;
+	int a, b;
 	char *s = dest;
 
-	c = 0;
-	d = 0;
-	while (dest[c] != '\0')
+	a = 0;
+	b = 0;
+	while (dest[a] != '\0')
 		 c++;
-	while (src[d] != '\0' && d < n)
+	while (src[b] != '\0' && d < n)
 	{
-		dest[c] = src[j];
-		c++;
-		d++;
+		dest[a] = src[j];
+		a++;
+		b++;
 	}
 	if (d < n)
 		dest[d] = '\0';
@@ -63,12 +63,12 @@ char *_strncat(char *dest, char *src, int n)
  *@c: chara to find
  *Return: s -a pointer to the memory
  */
-char *_strchr(char *s, char c)
+char *_strchr(char *k, char l)
 {
 	do {
-		if (*s == c)
+		if (*k == l)
 			return (s);
-	} while (*s++ != '\0');
+	} while (*k++ != '\0');
 
 	return (NULL);
 }
