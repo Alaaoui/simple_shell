@@ -45,17 +45,17 @@ int _eputchar(char c)
  * @fd:filedescriptor
  * Return: On success 1 else -1 for error
  */
-int _putfd(char c, int fd)
+int _putfd(char a, int fd)
 {
 	static int m;
 	static char buf[WRITE_BUF_SIZE];
 
-	if (c == BUF_FLUSH || m >= WRITE_BUF_SIZE)
+	if (a == BUF_FLUSH || m >= WRITE_BUF_SIZE)
 	{
 		write(fd, buf, m);
 		m = 0;
 	}
-	if (c != BUF_FLUSH)
+	if (a != BUF_FLUSH)
 		buf[m++] = c;
 	return (1);
 }
