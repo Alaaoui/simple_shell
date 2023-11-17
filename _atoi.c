@@ -1,10 +1,10 @@
 #include "shell.h"
 
 /**
- * interactive - interactive mode in shell
- * @info: struct value
+ * interactive - if shell is interactive mode returns true
+ * @info: struct address
  *
- * Return: 1 if shell is interactive , else 0
+ * Return: 1 if interactive mode, 0 otherwise
  */
 int interactive(info_t *info)
 {
@@ -12,63 +12,63 @@ int interactive(info_t *info)
 }
 
 /**
- * is_delim - verifies if delimiter in char
- * @c:char value
- * @delim:delimiter value
- * Return: 1 if true, else 0
+ * is_delim - verifies if character is a delimeter
+ * @ch: the char value to check
+ * @delim: the delimeter value string
+ * Return: 1 if true, 0 otherwise
  */
-int is_delim(char c, char *delim)
+int is_delim(char ch, char *delim)
 {
 	while (*delim)
-		if (*delim++ == c)
+		if (*delim++ == ch)
 			return (1);
 	return (0);
 }
 
 /**
- *_isalpha - alphabetic char validated
- *@c:char value
- *Return: 1 alphabetic, else 0
+ *_isalpha - looks for an alphabetic character
+ *@ch: character input value
+ *Return: 1 if ch is alphabetic, 0 otherwise
  */
 
-int _isalpha(int c)
+int _isalpha(int ch)
 {
-	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+	if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z'))
 		return (1);
 	else
 		return (0);
 }
 
 /**
- *_atoi - string to an integer conversion
- *@s:string value
- *Return: 0 if no numbers to convert.
+ *_atoi - a string is converted to an integer
+ *@s: the string value
+ *Return: 0 if no numbers in string, or else converted number
  */
 
 int _atoi(char *s)
 {
-	int m, con = 1, up = 0, outcome;
-	unsigned int final = 0;
+	int index, sign = 1, flag = 0, result;
+	unsigned int final_result = 0;
 
-	for (m = 0;  s[m] != '\0' && up != 2; m++)
+	for (index = 0;  s[index] != '\0' && flag != 2; index++)
 	{
-		if (s[m] == '-')
-			con *= -1;
+		if (s[index] == '-')
+			sign *= -1;
 
-		if (s[m] >= '0' && s[m] <= '9')
+		if (s[index] >= '0' && s[index] <= '9')
 		{
-			up = 1;
-			final *= 10;
-			final += (s[m] - '0');
+			flag = 1;
+			result *= 10;
+			result += (s[index] - '0');
 		}
-		else if (up == 1)
-			up = 2;
+		else if (flag == 1)
+			flag = 2;
 	}
 
-	if (con == -1)
-		outcome = -final;
+	if (sign == -1)
+		result = -final_result;
 	else
-		outcome = final;
+		result = final_result;
 
-	return (outcome);
+	return (result);
 }
